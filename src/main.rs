@@ -6,9 +6,13 @@ use std::process;
 
 mod token;
 mod lexer;
+mod parser;
+mod ast;
 
 use lexer::Lexer;
 use token::Token;
+use ast::Function;
+use parser::Parser;
 
 fn main() {
     
@@ -27,16 +31,24 @@ fn main() {
         process::exit(1);
     });
     
-    // Loop over and parse source file
+    // Loop over and lex source file
     let mut lexer = Lexer::new(&source);
+    let mut tokens = Vec::new();
     loop {
    
         let tok = lexer.next_token();
-        println!("{:?}", tok);
+        tokens.push(tok.clone());
 
         if tok == Token::Eof {
             break;
         }
 
+    }
+
+    let mut parser = Parser::new(tokens);
+    let functions = parser.parse();
+
+    for func in functions {
+        println!("{:#?}", func);
     }
 }
