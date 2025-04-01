@@ -1,0 +1,23 @@
+/target
+
+# Ignore IDE/editor files
+**/*.swp
+**/*.swo
+*.DS_Store
+*.idea/
+
+# Ignore backup files
+*.bak
+*~
+
+# Ignore compiled output or logs
+*.rlib
+*.d
+*.o
+*.so
+*.dll
+*.exe
+*.log
+
+# Ignore test artifacts 
+tests/output/*
