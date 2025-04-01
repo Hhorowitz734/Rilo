@@ -1,7 +1,7 @@
 // tests/lexer.rs
 
-use Rilo::lexer::Lexer;
-use Rilo::token::Token;
+use rilo::lexer::Lexer;
+use rilo::token::Token;
 
 /// Test simple 'let' statement
 #[test]
